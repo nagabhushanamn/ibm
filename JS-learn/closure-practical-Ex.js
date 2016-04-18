@@ -32,7 +32,7 @@ var counter=(function(){
 			return count;
 		}
 	};
-}());
+})();
 
 // ----------------------------
 
