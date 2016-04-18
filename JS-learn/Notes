@@ -1,0 +1,16 @@
+
+
+// 
+
+on loading JS , JS-engine
+
+-> will create 'Global Execution Context'
+
+   -> global-obj ( JS  activation obj )
+   
+       in borwser -> window
+       in Bode    -> global
+       
+   -> 'this'    
+   
+  ------------------------------------------- 
