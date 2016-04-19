@@ -1,0 +1,20 @@
+
+
+2 ways , to create/load js-modules
+-----------------------------------
+
+
+  1. commonJS API
+  
+  2. AMD  API ( Async Module Def )
+  
+     define() --> to define new-module
+     require() --> to load module
+     
+
+  --------------------
+  
+  
+  ES-6
+  
+  --> module   
