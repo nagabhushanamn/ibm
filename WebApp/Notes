@@ -1,0 +1,83 @@
+
+
+
+JS using Web APIs , can bring functionality to web-page.
+
+some Web APIs , provided by browsers
+
+ --> DOM
+ --> Timer
+ --> XHR
+ 
+ --> HTML5 APIs
+
+
+what JS can do on HTML-page in browser-envi ?
+
+using DOM API
+
+--> can create/retreive/update/delete HTML elements
+--> can change element's style dynamically.
+--> can change element's attribute values.
+--> can change element's inner-content.
+--> can create Rich UI components.
+
+using XHR API
+
+--> can communicate with server asych , 
+    update response in existing page  ( AJAX )
+    
+--> using TimerAPI
+
+    can do timed actions    
+    
+HTML5 APIs
+
+ a. canvas
+ b. Audio/video
+ c. local-storage
+ d. indexedDB
+ e. Websockets
+ f. WEBGL
+ 
+ -------------------------------------
+    
+
+ JS
+ 
+ --> single-threaded lang
+ 
+  
+     single-thread => one-action
+ 
+   ---------------------------------
+
+
+    browser
+    
+         --> JS engine/runtime
+          
+              ->call-stack
+              ->heap
+
+         --> Web APIs
+         --> callback-queue
+         --> event-loop
+
+
+   ---------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
