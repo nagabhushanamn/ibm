@@ -1,0 +1,12 @@
+
+
+module
+-------
+
+ node is based on 'commonJS' standard to define/load modules
+ 
+ -----------------
+ 
+ 
+ 
+ exports vs module.exports
