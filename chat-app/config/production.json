@@ -1,0 +1,4 @@
+{
+	"dbURL": "mongodb://localhost:27017/chat",
+	"sessionSecret": "ABCD12122ADADA"
+}

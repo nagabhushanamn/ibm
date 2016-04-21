@@ -1,0 +1,10 @@
+{
+	"dbURL": "mongodb://localhost:27017/chat",
+	"sessionSecret": "ABCD12122ADADA",
+	"fb": 
+	{
+		"appID": "1076453539077664",
+		"appSecret": "a8dfca7ac66c8e10291a57a95fed22b3",
+		"callbackURL": "http://localhost:3000/auth/facebook/callback"
+	}
+}

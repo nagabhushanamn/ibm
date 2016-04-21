@@ -1,0 +1,14 @@
+
+
+
+  event
+  ------
+  
+   types of events
+   
+   
+   a. system events  ( c++  app ->libuv  )
+   b. custom-events  (  EventEmitter     )
+      
+
+   -----------------------------

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>{{title}}</title>
+<link href="/css/bootstrap.css" rel="stylesheet">
+<script type="text/javascript" src="/socket.io/socket.io.js"></script>
+<script type="text/javascript" src="/js/jquery-2.2.0.js"></script>
+<script type="text/javascript">
+
+
+
+var socket=io.connect("http://localhost:3000/roomlist");
+
+socket.on('connect',function(){
+	console.log('connected..');
+});
+
+
+</script>
+</head>
+<body class="container" ng-app="chatApp">
+
+	<div class="page-header">chat-app with NodeJS</div>
+
+
+	
+	<div class="panel panel-default"">
+		<div class="panel-heading">
+		<img src="{{user.profilePic}}" class="img img-response"/> | {{user.fullName}} | <a href="logout">Logout</a>
+		</div>
+	</div>
+	
+	<div class="panel panel-default"">
+		<div class="panel-heading">
+			{{room_name}}
+		</div>
+	</div>	
+
+
+
+</body>
+</html>
