@@ -1,0 +1,54 @@
+
+
+PM
+-----
+
+ resource(s)
+ 
+a.Product
+ 
+       id
+       name
+       price
+       make
+       description
+       
+b.Review
+       rating
+       author
+       comment
+       date
+       
+-----------------------------    
+
+
+/products
+/products/{id}
+/products/{id}/reviews
+/products/{id}/reviews/{id}
+
+-----------------------------
+
+JSON
+
+-----------------------------
+
+ 
+    
+    DataStore
+    ---------
+    
+    RDBMS - mysql
+    NoSQL - mongodb
+    
+---------------------------------            
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
