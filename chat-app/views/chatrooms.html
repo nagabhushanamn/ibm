@@ -3,58 +3,33 @@
 <head>
 <meta charset="UTF-8">
 <title>{{title}}</title>
-<link href="css/bootstrap.css" rel="stylesheet">
-<script type="text/javascript" src="/socket.io/socket.io.js"></script>
-<script type="text/javascript" src="js/jquery-2.2.0.js"></script>
-<script type="text/javascript">
-
-
-
-var socket=io.connect("http://localhost:3000/roomlist");
-
-socket.on('connect',function(){
-	console.log('connected..');
-});
-
-socket.on('roomupdate',function(data){
-var rooms=JSON.parse(data);
-$('.roomList').html('');
-rooms.forEach(function(room){
-	var str='<li><a href=room/'+room.room_number+'>'+room.room_name+'</a></li>';
-	$('.roomList').prepend(str);
-});
-});
-
-$(function(){
-	$('#create').click(function(){
-		var newRoom=$('.newRoom').val();
-		if(newRoom!=''){
-			socket.emit('newroom',{room_name:newRoom,room_number:parseInt(Math.random()*100000)});
-			$('.newRoom').val('');
-		}
-	});
-})
-
+	<link href="/css/bootstrap.css" rel="stylesheet">
+	<script type="text/javascript" src="/js/jquery-2.2.0.js"></script>
+	<script type="text/javascript" src="/js/socket.io.js"></script>
+	<script type="text/javascript" src="/js/client-chat-rooms.js">
 </script>
+
 </head>
-<body class="container" ng-app="chatApp">
+<body class="container">
 
-	<div class="page-header">chat-app with NodeJS</div>
+	<div class="page-header">chat - using NodeJS</div>
 
+	<div class="panel panel-default">
 
-	
-	<div class="panel panel-default"">
 		<div class="panel-heading">
-		<img src="{{user.profilePic}}" class="img img-response"/> | {{user.fullName}} | <a href="logout">Logout</a>
+			<img alt="" src="{{user.profilePic}}"> | {{user.fullName}} | 
+			<a href="/logout">logout</a>
 		</div>
 		<div class="panel-body">
-			<input class="newRoom"><button id="create" class="btn btn-danger">create new-room</button>
+			<input class="input-sm new-room">
+			<button id="create" class="btn btn-success">create new-chat-room</button>
+			<hr />
+			<ul class="nav nav-pills nav-stacked list-group room-list">
+				
+			</ul>
 		</div>
-		<hr/>
-		<ul class="nav nav-pills nav-stacked roomList">
-		</ul>
-	</div>
 
+	</div>
 
 
 </body>

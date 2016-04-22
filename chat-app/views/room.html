@@ -4,36 +4,51 @@
 <meta charset="UTF-8">
 <title>{{title}}</title>
 <link href="/css/bootstrap.css" rel="stylesheet">
-<script type="text/javascript" src="/socket.io/socket.io.js"></script>
-<script type="text/javascript" src="/js/jquery-2.2.0.js"></script>
+
 <script type="text/javascript">
-
-
-
-var socket=io.connect("http://localhost:3000/roomlist");
-
-socket.on('connect',function(){
-	console.log('connected..');
-});
-
-
+var room_number={{room_id}};
+var room_name="{{room_name}}";
+var userName="{{user.fullName}}";
 </script>
+
+<script type="text/javascript" src="/js/socket.io.js"></script>
+<script type="text/javascript" src="/js/jquery-2.2.0.js"></script>
+<script type="text/javascript" src="/js/client-chat-room.js"></script>
 </head>
+
 <body class="container" ng-app="chatApp">
 
-	<div class="page-header">chat-app with NodeJS</div>
+	<div class="page-header">chat - using NodeJS</div>
 
-
-	
 	<div class="panel panel-default"">
 		<div class="panel-heading">
-		<img src="{{user.profilePic}}" class="img img-response"/> | {{user.fullName}} | <a href="logout">Logout</a>
+		<img src="{{user.profilePic}}" class="img img-response"/> | {{user.fullName}} | <a href="/logout">Logout</a>
 		</div>
 	</div>
 	
 	<div class="panel panel-default"">
 		<div class="panel-heading">
-			{{room_name}}
+		{{room_name}}
+		</div>
+		<div class="panel-body">
+		
+			<div class="row">
+			
+				<div class="col-md-8 col-sm-8">
+					<ul class="list-group messages">
+					 </ul>
+				</div>
+				<div class="col-md-4 col-sm-4" >
+					<ul class="list-group">
+						<li class="list-group-item active">{{user.fullName}}</li>
+					</ul>
+				</div>
+
+				<div class="col-md-12 col-sm-12 input-group-sm">
+					<input placeholder="message here" class="form-control new-message">
+				</div>
+			
+			</div>
 		</div>
 	</div>	
 

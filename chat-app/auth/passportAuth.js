@@ -1,56 +1,70 @@
 /**
  * http://usejsdoc.org/
  */
-var mongoose = require('mongoose');
+
 var passport = require('passport');
 var FacebookStrategy = require('passport-facebook').Strategy;
-var config = require('../config/config');
+
+var mongoose = require('mongoose');
+//mongoose.connect('mongodb://localhost:27017/chatdb');
+
+// --------------------------------------
+
+// mongoose User-Model
+
+var User = mongoose.model('User', {
+	profileId : String,
+	fullName : String,
+	profilePic : String
+});
+
+// --------------------------------------
 
 module.exports = function() {
 
-	var chatUser = new mongoose.Schema({
-		profileId : String,
-		fullName : String,
-		profilePic : String
-	});
-
-	var UserModel = mongoose.model('chatUser', chatUser);
-
+	var newUser;
+	
 	passport.serializeUser(function(user, done) {
 		done(null, user.id);
 	});
 
 	passport.deserializeUser(function(id, done) {
-		UserModel.findById(id, function(err, user) {
-			done(err, user);
-		});
+	//		User.findOne(id, function(err, user) {
+	//			done(err, user);
+	//		});
+		done(null,newUser);
 	});
 
 	passport.use(new FacebookStrategy({
-		clientID : config.fb.appID,
-		clientSecret : config.fb.appSecret,
-		callbackURL : config.fb.callbackURL,
-		profileFields : [ 'id', 'displayName', 'photos' ]
+		clientID : 488578934678645,
+		clientSecret : "100bdff4992340a1679a3fa7d7b5066e",
+		callbackURL : "http://canchat.herokuapp.com/auth/facebook/callback",
+		profileFields : [ "id", "displayName", "photos" ]
 	}, function(accessToken, refreshToken, profile, done) {
 
-		UserModel.findOne({
-			'profileId' : profile.id
-		}, function(err, result) {
-			if (result) {
-				done(null, result);
-			} else {
-				// Create a new user in MongoDB
-				var newChatUser = new UserModel({
+//		User.findOne({
+//			'profileId' : profile.id
+//		}, function(err, user) {
+//
+//			if (user) {
+//				done(null, user);
+//			} else {
+
+				var rn=Math.random();
+				 newUser = new User({
+					id:rn,
 					profileId : profile.id,
 					fullName : profile.displayName,
 					profilePic : profile.photos[0].value || ''
 				});
+				
+				done(null,newUser);
 
-				newChatUser.save(function(err) {
-					done(null, newChatUser);
-				});
-			}
-		});
+//				newUser.save(function(err, user) {
+//					done(null, user);
+//				});
+//			}
+//		});
 
 	}));
 

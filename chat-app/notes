@@ -1,0 +1,52 @@
+
+
+
+ view
+ -------------------------------------------
+ 
+   a.home
+   
+      login-with facebook
+     
+  b. chatrooms
+  
+      create new-chat-rrom
+      join chat-room
+      
+  c. room
+  
+      send/receive messages
+      display online-users
+      
+  -------------------------------------------
+  
+  server-side             -> Node ( express )
+  client-side ( browser ) -> jquery or NG
+  
+  -------------------------------------------
+  
+  
+    step-1
+  
+    --> using 'express-generator' scaffolded initial appln.
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+               
+      
